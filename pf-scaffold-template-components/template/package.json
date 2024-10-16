@@ -1,6 +1,6 @@
 {
-  "name": "pf-scaffold-template-components",
-  "version": "0.1.7",
+  "name": "<%= className %>",
+  "version": "<%= version %>",
   "private": false,
   "main": "dist/lego-components.umd.js",
   "module": "dist/lego-components.esm.js",

@@ -1,0 +1,11 @@
+{
+  "name": "pf-scaffold-components",
+  "version": "1.0.3",
+  "description": "",
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "publishConfig": {
+    "access": "public"
+  }
+}

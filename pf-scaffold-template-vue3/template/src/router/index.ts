@@ -1,7 +1,7 @@
-import { LOGIN_TOKEN } from '@/global/constants'
-import { localCache } from '@/utils/cache'
-import { firstMenu } from '@/utils/map-menus'
-import { createRouter, createWebHashHistory } from 'vue-router'
+import { LOGIN_TOKEN } from '@/global/constants';
+import { localCache } from '@/utils/cache';
+import { firstMenu } from '@/utils/map-menus';
+import { createRouter, createWebHashHistory } from 'vue-router';
 
 const router = createRouter({
   history: createWebHashHistory(),
@@ -9,24 +9,24 @@ const router = createRouter({
   routes: [
     {
       path: '/',
-      redirect: '/main'
+      redirect: '/main',
     },
     {
       path: '/login',
       name: 'login',
-      component: () => import('../views/login/Login.vue')
+      component: () => import('../views/login/Login.vue'),
     },
     {
       path: '/main',
       name: 'main',
-      component: () => import('../views/main/Main.vue')
+      component: () => import('../views/main/Main.vue'),
     },
     {
       path: '/:pathMatch(.*)*',
-      component: () => import('../views/not-found/NotFound.vue')
-    }
-  ]
-})
+      component: () => import('../views/not-found/NotFound.vue'),
+    },
+  ],
+});
 
 // 导航守卫
 // 参数: to(跳转到的位置) from(从哪里来) next(下一个钩子函数)
@@ -35,15 +35,15 @@ const router = createRouter({
 // to: /main from: / 返回值: /abc
 router.beforeEach((to) => {
   // 登录成功才能进入首页
-  const token = localCache.getCache(LOGIN_TOKEN)
+  const token = localCache.getCache(LOGIN_TOKEN);
   if (to.path.startsWith('/main') && !token) {
-    return '/login'
+    return '/login';
   }
 
   // 如果是进入到了main
   if (to.path === '/main') {
-    return firstMenu?.url
+    return firstMenu?.url;
   }
-})
+});
 
-export default router
+export default router;
